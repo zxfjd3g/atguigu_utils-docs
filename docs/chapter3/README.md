@@ -5,8 +5,19 @@
 
 ## 2. 搭建基本环境
 
+### 2.1.使用vue脚手架创建一个vue项目
+
 ```bash
-# 将 VuePress 作为一个本地依赖安装
+# 全局下载 vue 脚手架包
+npm install -g @vue/cli
+# 创建 vue2 的项目
+vue create atguigu-utils_docs
+```
+
+### 2.2.使用上vuepress
+
+```bash
+# 下载 VuePress
 npm install -D vuepress
 
 # 新建一个文件: docs/README.md
@@ -14,14 +25,11 @@ npm install -D vuepress
 
 # 启动文档项目
 npx vuepress dev docs
-
-# 构建静态文件
-npx vuepress build docs
 ```
 
-## 3. 配置教程文档
+## 3. 配置教程的文档
 
-1. 整体结构
+### 3.1.整体结构
 
 ```
 |-- docs
@@ -53,7 +61,7 @@ npx vuepress build docs
 |-- package.json
 ```
 
-2. `docs/.vuepress/config.js  `
+### 3.2.`docs/.vuepress/config.js  `
 
 ```js
 // 注意: base的值为github仓库的名称(/不能少)
@@ -121,7 +129,7 @@ module.exports = {
 }
 ```
 
-3. `docs/README.md`
+### 3.3.`docs/README.md`
 
 ```bash
 ---
@@ -144,7 +152,7 @@ features:
 ---
 ```
 
-4. `package.json`  
+### 3.4.`package.json`  
 
 ```json
 "scripts": {
@@ -154,11 +162,11 @@ features:
 }
 ```
 
-## 4. 发布到gitpage
+## 4. 发布到github pages
 
-1. 使用git管理当前项目  
+1. 使用git管理当前项目
 
-2. 将打包的项目推送到gitpage
+2. 将打包的文档推送到github pages
 ```bash
 # 下载工具包
 npm install -D gh-pages
