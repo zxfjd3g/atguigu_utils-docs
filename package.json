@@ -5,7 +5,10 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "doc:dev": "vuepress dev docs",
+    "doc:build": "vuepress build docs",
+    "doc:deploy": "gh-pages -d docs/dist"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -18,7 +21,9 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "vue-template-compiler": "^2.6.11"
+    "gh-pages": "^3.1.0",
+    "vue-template-compiler": "^2.6.11",
+    "vuepress": "^1.7.1"
   },
   "eslintConfig": {
     "root": true,

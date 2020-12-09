@@ -1,24 +1,14 @@
-# atguigu_utils-docs
+## 笔记
+## 使用VuePress搭建github在线blog
+- 创建一个远程仓库 xxx_utils-docs
+- 修改docs/.vuepress/config.js: base: '/xxx_utils-docs/'
+- 打包文档: npm run doc:build
+- 将项目推送到github
+  - git init
+  - git add .
+  - git commit -m "init"
+  - git push origin master
+- 发布文档: npm run doc:deploy
+- 访问在线文档: https://zxfjd3g.github.io/xxx_utils-docs/ (可能要等待一定的时间)
 
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
