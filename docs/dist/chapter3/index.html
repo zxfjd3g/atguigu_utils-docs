@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>使用VuePress搭建在线文档网站 | 自定义工具函数库</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <link rel="shortcut icon" type="image/x-icon" href="/atguigu_utils-docs/favicon.ico">
+    <meta name="description" content="尚硅谷前端研究院">
+    
+    <link rel="preload" href="/atguigu_utils-docs/assets/css/0.styles.1879042d.css" as="style"><link rel="preload" href="/atguigu_utils-docs/assets/js/app.c9331961.js" as="script"><link rel="preload" href="/atguigu_utils-docs/assets/js/2.f32a53b7.js" as="script"><link rel="preload" href="/atguigu_utils-docs/assets/js/22.fff3cae2.js" as="script"><link rel="prefetch" href="/atguigu_utils-docs/assets/js/10.1ff7bb91.js"><link rel="prefetch" href="/atguigu_utils-docs/assets/js/11.3f679e7c.js"><link rel="prefetch" href="/atguigu_utils-docs/assets/js/12.b99aab34.js"><link rel="prefetch" href="/atguigu_utils-docs/assets/js/13.ed44048f.js"><link rel="prefetch" href="/atguigu_utils-docs/assets/js/14.fefcf093.js"><link rel="prefetch" href="/atguigu_utils-docs/assets/js/15.057be12f.js"><link rel="prefetch" href="/atguigu_utils-docs/assets/js/16.75169d2d.js"><link rel="prefetch" href="/atguigu_utils-docs/assets/js/17.006506a7.js"><link rel="prefetch" href="/atguigu_utils-docs/assets/js/18.43bab5f4.js"><link rel="prefetch" href="/atguigu_utils-docs/assets/js/19.8fd13e1e.js"><link rel="prefetch" href="/atguigu_utils-docs/assets/js/20.7c4a9dfb.js"><link rel="prefetch" href="/atguigu_utils-docs/assets/js/21.e181fc12.js"><link rel="prefetch" href="/atguigu_utils-docs/assets/js/3.42045d26.js"><link rel="prefetch" href="/atguigu_utils-docs/assets/js/4.b750b371.js"><link rel="prefetch" href="/atguigu_utils-docs/assets/js/5.b6a849f5.js"><link rel="prefetch" href="/atguigu_utils-docs/assets/js/6.b7814ab0.js"><link rel="prefetch" href="/atguigu_utils-docs/assets/js/7.a359f26f.js"><link rel="prefetch" href="/atguigu_utils-docs/assets/js/8.9ab89508.js"><link rel="prefetch" href="/atguigu_utils-docs/assets/js/9.3d32217b.js">
+    <link rel="stylesheet" href="/atguigu_utils-docs/assets/css/0.styles.1879042d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/atguigu_utils-docs/" class="home-link router-link-active"><img src="/atguigu_utils-docs/logo.png" alt="自定义工具函数库" class="logo"> <span class="site-name can-hide">自定义工具函数库</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="http://www.atguigu.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  官网
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="http://www.gulixueyuan.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  谷粒学院
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="学习路线" class="dropdown-title"><span class="title">学习路线</span> <span class="arrow down"></span></button> <button type="button" aria-label="学习路线" class="mobile-dropdown-title"><span class="title">学习路线</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="http://www.atguigu.com/web/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  前端
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://www.atguigu.com/kecheng.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Java
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://www.atguigu.com/bigdata/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  大数据
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="http://www.atguigu.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  官网
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="http://www.gulixueyuan.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  谷粒学院
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="学习路线" class="dropdown-title"><span class="title">学习路线</span> <span class="arrow down"></span></button> <button type="button" aria-label="学习路线" class="mobile-dropdown-title"><span class="title">学习路线</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="http://www.atguigu.com/web/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  前端
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://www.atguigu.com/kecheng.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Java
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://www.atguigu.com/bigdata/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  大数据
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>打包自定义工具库</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/atguigu_utils-docs/chapter1/01_工具函数库说明.html" class="sidebar-link">1. 工具函数库说明</a></li><li><a href="/atguigu_utils-docs/chapter1/02_创建工具包项目.html" class="sidebar-link">2.创建工具包项目</a></li><li><a href="/atguigu_utils-docs/chapter1/03_发布到npm中央仓库.html" class="sidebar-link">3.发布到npm仓库</a></li><li><a href="/atguigu_utils-docs/chapter1/04_使用自定义工具包.html" class="sidebar-link">4.使用自定义工具包</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>各种自定义</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/atguigu_utils-docs/chapter2/01_函数相关.html" class="sidebar-link">1. 函数相关</a></li><li><a href="/atguigu_utils-docs/chapter2/02_数组相关.html" class="sidebar-link">2. 数组相关</a></li><li><a href="/atguigu_utils-docs/chapter2/03_对象相关.html" class="sidebar-link">3. 对象相关</a></li><li><a href="/atguigu_utils-docs/chapter2/04_字符串相关.html" class="sidebar-link">4.字符串相关</a></li><li><a href="/atguigu_utils-docs/chapter2/05_手写继承.html" class="sidebar-link">5.手写继承</a></li><li><a href="/atguigu_utils-docs/chapter2/06_手写带委托的事件监听.html" class="sidebar-link">6.手写DOM事件监听(带委托)</a></li><li><a href="/atguigu_utils-docs/chapter2/07_手写ajax请求函数.html" class="sidebar-link">7.手写ajax请求函数</a></li><li><a href="/atguigu_utils-docs/chapter2/08_手写事件总线.html" class="sidebar-link">8.手写事件总线</a></li><li><a href="/atguigu_utils-docs/chapter2/09_手写消息订阅与发布.html" class="sidebar-link">9.手写消息订阅与发布</a></li><li><a href="/atguigu_utils-docs/chapter2/10_手写Promise.html" class="sidebar-link">10.手写Promise</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>快速搭建在线文档网站</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/atguigu_utils-docs/chapter3/" aria-current="page" class="active sidebar-link">使用VuePress搭建在线文档网站</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/atguigu_utils-docs/chapter3/#_1-在线文档" class="sidebar-link">1. 在线文档</a></li><li class="sidebar-sub-header"><a href="/atguigu_utils-docs/chapter3/#_2-搭建基本环境" class="sidebar-link">2. 搭建基本环境</a></li><li class="sidebar-sub-header"><a href="/atguigu_utils-docs/chapter3/#_3-配置教程文档" class="sidebar-link">3. 配置教程文档</a></li><li class="sidebar-sub-header"><a href="/atguigu_utils-docs/chapter3/#_4-发布到gitpage" class="sidebar-link">4. 发布到gitpage</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="使用vuepress搭建在线文档网站"><a href="#使用vuepress搭建在线文档网站" class="header-anchor">#</a> 使用VuePress搭建在线文档网站</h1> <h2 id="_1-在线文档"><a href="#_1-在线文档" class="header-anchor">#</a> 1. 在线文档</h2> <p><a href="https://vuepress.vuejs.org/zh/" target="_blank" rel="noopener noreferrer">VuePress官方在线文档<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="_2-搭建基本环境"><a href="#_2-搭建基本环境" class="header-anchor">#</a> 2. 搭建基本环境</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 将 VuePress 作为一个本地依赖安装</span>
+<span class="token function">npm</span> <span class="token function">install</span> -D vuepress
+
+<span class="token comment"># 新建一个文件: docs/README.md</span>
+<span class="token comment"># Hello VuePress!</span>
+
+<span class="token comment"># 启动文档项目</span>
+npx vuepress dev docs
+
+<span class="token comment"># 构建静态文件</span>
+npx vuepress build docs
+</code></pre></div><h2 id="_3-配置教程文档"><a href="#_3-配置教程文档" class="header-anchor">#</a> 3. 配置教程文档</h2> <ol><li>整体结构</li></ol> <div class="language- extra-class"><pre class="language-text"><code>|-- docs
+  |-- .vuepress
+    |-- public
+      |-- favicon.ico
+      |-- logo.png
+      |-- utils.jpg
+    |-- config.js
+  |-- chapter1
+    |-- 01_工具函数库说明.md
+    |-- 02_创建工具包项目.md
+    |-- 03_发布到npm中央仓库.md
+    |-- 04_使用自定义工具包.md
+  |-- chapter2
+    |-- 01_函数相关
+    |-- 02_数组相关
+    |-- 03_对象相关
+    |-- 04_字符串相关
+    |-- 05_手写继承
+    |-- 06_手写带委托的事件监听
+    |-- 07_手写ajax请求函数
+    |-- 08_手写事件总线
+    |-- 09_手写消息订阅与发布
+    |-- 10_手写Promise
+  |-- chapter3
+    |-- README.md
+  |-- README.md
+|-- package.json
+</code></pre></div><ol start="2"><li><code>docs/.vuepress/config.js</code></li></ol> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 注意: base的值为github仓库的名称(/不能少)</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  base<span class="token operator">:</span> <span class="token string">'/atuigu_utils/'</span><span class="token punctuation">,</span> <span class="token comment">/* 基础虚拟路径 */</span>
+  dest<span class="token operator">:</span> <span class="token string">'docs/dist'</span><span class="token punctuation">,</span> <span class="token comment">/* 打包文件基础路径, 在命令所在目录下 */</span>
+  title<span class="token operator">:</span> <span class="token string">'自定义工具函数库'</span><span class="token punctuation">,</span> <span class="token comment">// 标题</span>
+  description<span class="token operator">:</span> <span class="token string">'尚硅谷前端研究院'</span><span class="token punctuation">,</span> <span class="token comment">// 标题下的描述</span>
+  
+  themeConfig<span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token comment">// 主题配置</span>
+    logo<span class="token operator">:</span> <span class="token string">'/logo.png'</span><span class="token punctuation">,</span>
+    nav<span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token comment">// 头部导航</span>
+      <span class="token punctuation">{</span> text<span class="token operator">:</span> <span class="token string">'官网'</span><span class="token punctuation">,</span> link<span class="token operator">:</span> <span class="token string">'http://www.atguigu.com'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span> text<span class="token operator">:</span> <span class="token string">'谷粒学院'</span><span class="token punctuation">,</span> link<span class="token operator">:</span> <span class="token string">'http://www.gulixueyuan.com/'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span> 
+        text<span class="token operator">:</span> <span class="token string">'学习路线'</span><span class="token punctuation">,</span> 
+        items<span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span> text<span class="token operator">:</span> <span class="token string">'前端'</span><span class="token punctuation">,</span> link<span class="token operator">:</span> <span class="token string">'http://www.atguigu.com/web/'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span> text<span class="token operator">:</span> <span class="token string">'Java'</span><span class="token punctuation">,</span> link<span class="token operator">:</span> <span class="token string">'http://www.atguigu.com/kecheng.shtml'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span> text<span class="token operator">:</span> <span class="token string">'大数据'</span><span class="token punctuation">,</span> link<span class="token operator">:</span> <span class="token string">'http://www.atguigu.com/bigdata/'</span> <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span> 
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    sidebar<span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token comment">// 左侧导航</span>
+      <span class="token punctuation">{</span>
+        title<span class="token operator">:</span> <span class="token string">'打包自定义工具库'</span><span class="token punctuation">,</span> <span class="token comment">// 标题</span>
+        collapsable<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 下级列表不可折叠</span>
+        children<span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token comment">// 下级列表</span>
+          <span class="token string">'chapter1/01_工具函数库说明'</span><span class="token punctuation">,</span>
+          <span class="token string">'chapter1/02_创建工具包项目'</span><span class="token punctuation">,</span>
+          <span class="token string">'chapter1/03_发布到npm中央仓库'</span><span class="token punctuation">,</span>
+          <span class="token string">'chapter1/04_使用自定义工具包'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        title<span class="token operator">:</span> <span class="token string">'各种自定义'</span><span class="token punctuation">,</span>
+        collapsable<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        children<span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token string">'chapter2/01_函数相关'</span><span class="token punctuation">,</span>
+          <span class="token string">'chapter2/02_数组相关'</span><span class="token punctuation">,</span>
+          <span class="token string">'chapter2/03_对象相关'</span><span class="token punctuation">,</span>
+          <span class="token string">'chapter2/04_字符串相关'</span><span class="token punctuation">,</span>
+          <span class="token string">'chapter2/05_手写继承'</span><span class="token punctuation">,</span>
+          <span class="token string">'chapter2/06_手写带委托的事件监听'</span><span class="token punctuation">,</span>
+          <span class="token string">'chapter2/07_手写ajax请求函数'</span><span class="token punctuation">,</span>
+          <span class="token string">'chapter2/08_手写事件总线'</span><span class="token punctuation">,</span>
+          <span class="token string">'chapter2/09_手写消息订阅与发布'</span><span class="token punctuation">,</span>
+          <span class="token string">'chapter2/10_手写Promise'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        title<span class="token operator">:</span> <span class="token string">'快速搭建在线文档网站'</span><span class="token punctuation">,</span>
+        collapsable<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        children<span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token string">'chapter3/'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token comment">// sidebarDepth: 3 // 左侧导航的深度默认是2级</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  head<span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token comment">// 指定网页head图标</span>
+    <span class="token punctuation">[</span><span class="token string">'link'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> rel<span class="token operator">:</span> <span class="token string">'shortcut icon'</span><span class="token punctuation">,</span> type<span class="token operator">:</span> <span class="token string">&quot;image/x-icon&quot;</span><span class="token punctuation">,</span> href<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/favicon.ico</span><span class="token template-punctuation string">`</span></span> <span class="token punctuation">}</span><span class="token punctuation">]</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ol start="3"><li><code>docs/README.md</code></li></ol> <div class="language-bash extra-class"><pre class="language-bash"><code>---
+<span class="token comment">#首页</span>
+home: <span class="token boolean">true</span>  
+<span class="token comment"># 图标</span>
+heroImage: /utils.jpg
+<span class="token comment"># 按钮文本</span>
+actionText: 开始学习 →
+<span class="token comment"># 按钮点击跳转路径</span>
+actionLink: /chapter1/01_工具函数库说明
+
+features: 
+- title: 技术提升
+  details: 通过自定义实现函数相关、数组相关、对象相关，字符串相关工具函数； 手写继承、DOM事件监听、ajax请求、事件总线、消息订阅-发布、Promise。极大提升对JS核心技术的理解和编码能力
+- title: 面试利器
+  details: 中大厂面试问得最多是什么？答：原生JS的理解和编码，咱们这套课程就是为此设计的。
+- title: 扩展能力
+  details: 如何创建自己的npm工具库？如何快速搭建在线技术或文档站点？我们给你最精简的答案。
+---
+</code></pre></div><ol start="4"><li><code>package.json</code></li></ol> <div class="language-json extra-class"><pre class="language-json"><code><span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">&quot;doc:dev&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vuepress dev docs&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;doc:build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vuepress build docs&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;doc:deploy&quot;</span><span class="token operator">:</span> <span class="token string">&quot;gh-pages -d docs/dist&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="_4-发布到gitpage"><a href="#_4-发布到gitpage" class="header-anchor">#</a> 4. 发布到gitpage</h2> <ol><li><p>使用git管理当前项目</p></li> <li><p>将打包的项目推送到gitpage</p></li></ol> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 下载工具包</span>
+<span class="token function">npm</span> <span class="token function">install</span> -D gh-pages
+<span class="token comment"># 执行打包命令</span>
+<span class="token function">npm</span> run doc:build
+<span class="token comment"># 执行部署命令</span>
+<span class="token function">npm</span> run doc:deploy
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/atguigu_utils-docs/chapter2/10_手写Promise.html" class="prev">
+        10.手写Promise
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/atguigu_utils-docs/assets/js/app.c9331961.js" defer></script><script src="/atguigu_utils-docs/assets/js/2.f32a53b7.js" defer></script><script src="/atguigu_utils-docs/assets/js/22.fff3cae2.js" defer></script>
+  </body>
+</html>

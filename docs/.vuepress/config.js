@@ -1,6 +1,6 @@
 // 注意: base的值为github仓库的名称(/不能少)
 module.exports = {
-  base: '/atuigu_utils/', /* 基础虚拟路径 */
+  base: '/atguigu_utils-docs/', /* 基础虚拟路径 */
   dest: 'docs/dist', /* 打包文件基础路径, 在命令所在目录下 */
   title: '自定义工具函数库', // 标题
   description: '尚硅谷前端研究院', // 标题下的描述
